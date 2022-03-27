@@ -34,7 +34,7 @@ function round() {
     position[0] += blockSize * direction[0]
     position[1] += blockSize * direction[1]
     if(!isBonusPoint()) blockPositions.splice(0, 1)
-    if(position[0] < 0 || position[0] > canvasSize || position[1] < 0 || position[1] > canvasSize || containsPosition()) {
+    if(position[0] < 0 || position[0] >= canvasSize || position[1] < 0 || position[1] >= canvasSize || containsPosition()) {
         stopGame()
         alert("Game over.")
     }
