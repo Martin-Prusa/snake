@@ -72,6 +72,7 @@ let interval
  * Vynuluje potřebné proměné
  */
 function startGame() {
+    startBtn.disabled = true
     refreshTime = originalRefreshTime
     interval = setInterval(round, refreshTime)
     position = new Coords(canvasSize / 2, canvasSize / 2)
@@ -100,6 +101,7 @@ function round() {
  * funkce, která se spustí při vypnutí hry
  */
 function stopGame() {
+    startBtn.disabled = false
     clearInterval(interval)
 }
 
