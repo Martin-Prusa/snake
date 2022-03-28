@@ -179,19 +179,19 @@ startBtn.addEventListener('click', startGame)
 stopBtn.addEventListener('click', stopGame)
 window.addEventListener('keydown', (event) => {
     switch(true)  {
-        case event.code === 'w' && direction.y === 0:
+        case event.code === 'KeyW' && direction.y === 0:
         case event.code === 'ArrowUp' && direction.y === 0:
             direction = new Coords(0, -1)
             break
-        case event.code === 's' && direction.y === 0:
+        case event.code === 'KeyS' && direction.y === 0:
         case event.code === 'ArrowDown' && direction.y === 0:
             direction = new Coords(0, 1)
             break
-        case event.code === 'a' && direction.x === 0:
+        case event.code === 'KeyA' && direction.x === 0:
         case event.code === 'ArrowLeft' && direction.x === 0:
             direction = new Coords(-1, 0)
             break
-        case event.code === 'd' && direction.x === 0:
+        case event.code === 'KeyD' && direction.x === 0:
         case event.code === 'ArrowRight' && direction.x === 0:
             direction = new Coords(1, 0)
             break
