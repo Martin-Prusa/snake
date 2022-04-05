@@ -121,11 +121,24 @@ function generateNewPoint() {
         generateNewPoint()
         return
     }
+    const num = Math.floor(Math.random() * 5)
+    if(num === 0) {
+        bonusPoints.push(new Point(c, 'blue', () => {
+            generateNewPoint()
+            if(refreshTime < 100) refreshTime /= 1.25
+            else refreshTime /= 1.5
+            clearInterval(interval)
+            score+=2
+            interval = setInterval(round, refreshTime)
+        }))
+        return;
+    }
     bonusPoints.push(new Point(c, 'red', () => {
         generateNewPoint()
         if(refreshTime < 100) refreshTime /= 1.08
         else refreshTime /= 1.25
         clearInterval(interval)
+        score++
         interval = setInterval(round, refreshTime)
     }))
 }
@@ -140,7 +153,6 @@ function isBonusPoint() {
     if(point === undefined) return false
     bonusPoints = bonusPoints.filter((bonusPoint) => bonusPoint !== point)
     point.onAction()
-    score++
     scoreboard.innerHTML = score+""
 
     return true
